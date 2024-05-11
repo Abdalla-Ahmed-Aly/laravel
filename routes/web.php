@@ -13,6 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+
+Route::get('about', function () {
+$users=[
+["name"=>"Abdoo","age"=>12],
+["name"=>"Abdoo","age"=>12],
+["name"=>"Abdoo","age"=>12],
+
+
+];
+
+
+    return view("about",compact('users'));
 });
+

@@ -11,22 +11,15 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('ticket', function (Blueprint $table) {
+        Schema::create('tickets', function (Blueprint $table) {
             $table->id();
-
-$table->unsignedBigInteger('customer_id');
-$table->foreign('customer_id')->references('id')->on('customer')->onDelete('cascade');
+            $table->unsignedBigInteger('customer_id');
+$table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
 $table->unsignedBigInteger('showtime_id');
-$table->foreign('showtime_id')->references('id')->on('showtime')->onDelete('cascade');
+$table->foreign('showtime_id')->references('id')->on('showtimes')->onDelete('cascade');
 
 $table->integer('seat_number');
 $table->integer('price');
-
-
-
-
-
-
             $table->timestamps();
         });
     }
@@ -36,6 +29,6 @@ $table->integer('price');
      */
     public function down(): void
     {
-        Schema::dropIfExists('ticket');
+        Schema::dropIfExists('tickets');
     }
 };
